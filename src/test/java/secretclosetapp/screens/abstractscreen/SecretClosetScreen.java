@@ -28,13 +28,12 @@ public abstract class SecretClosetScreen extends AndroidScreen{
         }
     }
 
-    public void startActivity() {
-        Activity activity = new Activity(packageName, activityName);
-        super.startActivity(activity);
-    }
-
     public void waitForSpinner() {
         lblSpinner.state().waitForDisplayed();
         lblSpinner.state().waitForNotDisplayed();
+    }
+
+    protected ILabel getLabel(By locator, String name) {
+        return getElementFactory().getLabel(locator, name);
     }
 }

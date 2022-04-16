@@ -14,6 +14,8 @@ import java.util.Map;
 import static secretclosetapp.screens.ItemInfoScreen.ItemInfo.*;
 
 public class InteractionTest {
+    private static final String CITY_NAME = "London";
+
 
     @BeforeClass
     public void setUp() {
@@ -28,13 +30,11 @@ public class InteractionTest {
 
     @Test
     public void testSecretClosetApp() {
-        String cityName = "London";
-
         MainActivitySteps.clickOnCitySelect();
         WarningPopupSteps.clickOk();
-        CitySelectSteps.searchAndSelectCity(cityName);
+        CitySelectSteps.searchAndSelectCity(CITY_NAME);
         String actualCityName = MainActivitySteps.saveSelectedCityName();
-        Assert.assertEquals(actualCityName, cityName, "City Names should be the same on City Select and Main screens");
+        Assert.assertEquals(actualCityName, CITY_NAME, "City Names should be the same on City Select and Main screens");
 
         Map<String, String> expectedPrices = MainActivitySteps.getDiscountedItemInfoByIndex(1);
         MainActivitySteps.selectDiscountedItemByIndex(1);

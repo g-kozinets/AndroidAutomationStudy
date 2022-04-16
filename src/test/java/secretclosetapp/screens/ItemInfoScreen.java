@@ -1,11 +1,10 @@
 package secretclosetapp.screens;
 
-import aquality.appium.mobile.elements.interfaces.ILabel;
 import lombok.AllArgsConstructor;
 import org.openqa.selenium.By;
 import secretclosetapp.models.Seller;
 import secretclosetapp.screens.abstractscreen.SecretClosetScreen;
-import secretclosetapp.utils.Constants;
+import secretclosetapp.constants.ConstantsStringFormat;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,10 +14,6 @@ public class ItemInfoScreen extends SecretClosetScreen {
 
     public ItemInfoScreen() {
         super(By.id("com.zdv.secretcloset:id/rlBasicInfo"), ".AdditionalAttributesActivity", "Item Info");
-    }
-
-    private ILabel getLabel(By locator, String name) {
-        return getElementFactory().getLabel(locator, name);
     }
 
     public void clickItemInfo(ItemInfo info) {
@@ -60,7 +55,7 @@ public class ItemInfoScreen extends SecretClosetScreen {
         String locator;
 
         public String getLocator() {
-            return String.format(Constants.ID_LOC_FORMAT, ItemInfoScreen.packageName, locator);
+            return String.format(ConstantsStringFormat.ID_LOC_FORMAT, ItemInfoScreen.packageName, locator);
         }
     }
 }
